@@ -34,12 +34,8 @@ public class Example3 {
                 new Student("Ashley", 85), new Student("Alexis", 90)};
         List<Student> studentList = Arrays.asList(studentArray);
 
-        Predicate<Student> studentFilterPredicate = new Predicate<Student>() {
-            @Override
-            public boolean test(Student student) {
-                return student.getName().startsWith("A") && student.getMarks() > 80;
-            }
-        };
+        Predicate<Student> studentFilterPredicate =
+                student -> student.getName().startsWith("A") && student.getMarks() > 80;
 
         List<Student> studentAList = studentList.stream()
                 .filter(studentFilterPredicate)
